@@ -1,5 +1,8 @@
 # Game of Three - Coding Challenge
 
+![Won](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/won.png)
+![Lost](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/lost.png)
+
 ## Goal
 The goal is to implement a game with two independent units – the players –
 communicating with each other using an API.
