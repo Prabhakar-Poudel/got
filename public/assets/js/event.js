@@ -1,4 +1,5 @@
 const DELAY_MOVE_MS = 2000;
+const MAX_SEED = 100000;
 const EVENTS = {
   JOIN: 'join',
   BEGIN: 'begin',
@@ -7,22 +8,23 @@ const EVENTS = {
 
 let gameId;
 let sessionId;
-let seed;
 
-const socket = io('http://localhost:4000');
+const socket = io();
 
 socket.on(EVENTS.MOVE, (data) => {
-  console.log('moving game', data);
   handleMove(data);
 });
 
 socket.once(EVENTS.JOIN, (data) => {
-  console.log('someone joined the game', data);
   startGame(data);
 });
 
 const startGame = (data) => {
-  console.log('starting game');
+  const seedText = document.getElementById('seed').textContent;
+  const seed = seedText
+    ? parseInt(seedText, 10)
+    : Math.floor(Math.random() * MAX_SEED);
+
   const sessions = [data.sessionId, sessionId];
   const moves = [{ sessionId, additive: 0, result: seed }];
   setTimeout(
@@ -38,6 +40,7 @@ const handleMove = (data) => {
 
   resultEl.appendChild(createChatMessage(lastMove));
   if (lastMove.result === 1) {
+    disconnect();
     showFinishedGame(lastMove.sessionId === sessionId);
     return;
   }
@@ -68,15 +71,18 @@ const getAdditive = (lastNumber) => {
   }
 };
 
+const disconnect = () => {
+  socket.disconnect();
+};
+
 const init = async () => {
   sessionId = document.getElementById('sessionId').textContent;
   gameId = document.getElementById('gameId').textContent;
-  const seedText = document.getElementById('seed').textContent;
-  if (!seedText || !sessionId || !gameId) {
+  if (!sessionId || !gameId) {
+    disconnect();
     return;
   }
-  seed = parseInt(seedText, 10);
-  socket.emit(EVENTS.JOIN, { sessionId, gameId, seed });
+  socket.emit(EVENTS.JOIN, { sessionId, gameId });
 };
 
 document.addEventListener('DOMContentLoaded', init);

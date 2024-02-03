@@ -47,16 +47,45 @@ To not add complexity that we probably do not need (which keeps architecture sim
 - Users do not cheat
 - Users do not need to sign up (register)
 - We render a simple UI (server rendered)
-- Players
+- 2 players are needed to start the game
+- 1st player to join will wait until other player joins the game
+- All aspects of authentication, authorization, security etc are out of scope. But should be easy to add them on later iterations
+- In memory cache used for the POC. Should be trivial to replace with cache store in later iterations
+- Server is delebrately kept stateless except for keeping single game with one player, until another player joins. In later iterations we could levarage the cache store to keep track of game state, allow multiple people in same game, keep players, games records etc
+- We use socket.io which will use socket if available at the client or fallback to long polling. But the impact should be opaque to us.
+- UI is delebrately kept simple. In later iterations it makes sense to create a separate application for it.
 
+
+### The high level components
+
+- A nestJS server using MVC pattern to serve simple HTML built with handlebars templating
 
 ![Basic architecture](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/architecture.png)
 
 
+### The game
+
+- Users enters their name to join a game.
+- Sever checks for available game if any or creates a new game and returns game ID to the client (browser)
+- The server only knows if there is any game witing for another player. The game itself is a logical concept at this pont, mwwrly an ID of the game. Beside game ID server also sends the initial random number that is used to start the game. And a session id for this client.
+- Client connects to server using socket connection to join the game and subscribe to events in the game
+- Server simply relays all the events it receives to the client. Note again here that server trusts the client to make right decision through the game. This pattern of course is not ideal but is very good to illustrate the communication layer and overall architecture of the system
+- There are too many ways the system could be erroneous, connection error, client disconnects midway, wrong data from client etc. And apart from usual connection error nothing is assumed but all error handlings is too vast for a POC
+- Game ends when 1 of the player gets the result of calculation equal 1.
 
 ![Architectural flow diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/flow-diagram.png)
 
 
+### Message flow via socket
+
+- After receiving game ID, client will create connection to the server.
+- Client will send a `join` message with game id, user's session id (session because user sounds like person), among other details.
+- Server will broadcast user joined the game in the game room.
+- Server willl add user to the room specific to this game.
+- This will repeat when second player joins.
+- After receiving player join event, the first client will send a `begin` message to signal starting game. Client also makes an initial move at the same time, with move just being the initial number.
+- The game follows by each player sending a `move` event, adding their next move to the list of moves (in a setup with database, server can store the move without clientss having to track them)
+- Game ends when one of the player makes a move that results to 1.
 
 ![Socket diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/socket-diagram.png)
 
@@ -69,3 +98,12 @@ Install dependencies
 
 Run server
 `npm run dev`
+
+# Manual testing
+
+After starting the server. Open two tabs pointing to the server (default http://localhost:3000)
+Enter your name and hit the play button, one after another in both tabs
+The game should proceed automatically until it finishes
+
+# Automatic testing
+TODO

@@ -15,7 +15,6 @@ interface Move {
 interface JoinEvent {
   gameId: string;
   sessionId: string;
-  seed: number;
 }
 
 interface MoveEvent {
@@ -38,22 +37,18 @@ export class EventGateway {
 
   @SubscribeMessage(EventType.MOVE)
   gameMove(@MessageBody() data: MoveEvent): void {
-    console.log('moving game');
     this.server.to(data.gameId).emit(EventType.MOVE, data);
   }
 
   @SubscribeMessage(EventType.BEGIN)
   gameBegin(@MessageBody() data: MoveEvent): void {
-    console.log('starting game');
     this.server.to(data.gameId).emit(EventType.MOVE, data);
   }
 
   @SubscribeMessage(EventType.JOIN)
   joinGame(socket: Socket, data: JoinEvent): JoinEvent {
-    console.log('joining game', data);
     socket.to(data.gameId).emit(EventType.JOIN, data);
     socket.join(data.gameId);
-    console.log(socket.rooms);
     return data;
   }
 }
