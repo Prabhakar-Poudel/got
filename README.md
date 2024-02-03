@@ -26,20 +26,20 @@ Any whole number can be converted to a number divisible by 3 using the available
 And there is only one way this can be done. As illustrated in example below. And if we look up starting from 1 there
 is a range of numbers that if a player gets can decide if they win or loose over the course of the game
 
-1 -> Not possible
-2 -> +1, /3 = 1 Win
-3 -> +0, /3 = 1 Win
-4 -> -1, /3 = 1 Win
-5 -> +1, /3 = 2 Loss(Next player wins at 2)
-6 -> +0, /3 = 2 Loss(Next player wins at 2)
-7 -> -1, /3 = 2 Loss(Next player wins at 2)
-8 -> +1, /3 = 3 Loss(Next player wins at 3)
-9 -> +0, /3 = 3 Loss(Next player wins at 3)
-10 -> -1, /3 = 3 Loss(Next player wins at 3)
-11, 12, 13 -> +1, 0, -1 {} /3 = 4 Loss(Next player wins at 4)
-14, 15, ... , 40 => 5 Win
-41 ... 121 -> +1/3 = 14 Loss
-...
+1 -> Not possible<br />
+2 -> +1, /3 = 1 Win<br />
+3 -> +0, /3 = 1 Win<br />
+4 -> -1, /3 = 1 Win<br />
+5 -> +1, /3 = 2 Loss(Next player wins at 2)<br />
+6 -> +0, /3 = 2 Loss(Next player wins at 2)<br />
+7 -> -1, /3 = 2 Loss(Next player wins at 2)<br />
+8 -> +1, /3 = 3 Loss(Next player wins at 3)<br />
+9 -> +0, /3 = 3 Loss(Next player wins at 3)<br />
+10 -> -1, /3 = 3 Loss(Next player wins at 3)<br />
+11, 12, 13 -> +1, 0, -1 {} /3 = 4 Loss(Next player wins at 4)<br />
+14, 15, ... , 40 => 5 Win<br />
+41 ... 121 -> +1/3 = 14 Loss<br />
+...<br />
 
 # Architecture
 
