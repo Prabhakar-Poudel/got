@@ -12,7 +12,7 @@ then sent back to the original sender.
 The same rules are applied until one player reaches the number 1 (after the division).
 See the example below.
 
-[TODO] Add image
+[Example](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/example.png)
 
 For each "move", a sufficient output should be generated (mandatory: the added, and
 the resulting number).
@@ -47,6 +47,14 @@ To not add complexity that we probably do not need (which keeps architecture sim
 - Users do not need to sign up (register)
 - We render a simple UI (server rendered)
 - Players
+
+
+[Basic architecture](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/architecture.png)
+
+
+[Architectural flow diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/flow-diagram.png)
+
+[Socket diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/socket-diagram.png)
 
 # Devlopement
 
