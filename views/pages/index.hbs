@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html class="dark">
+
+<head>
+  <meta charset="utf-8">
+  <title>GOT | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/logo/logo-no-background.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="dark:text-white">
+  <div class="dark:bg-slate-800 h-dvh flex flex-col">
+    <div class="h-24 border-b-2 flex items-center px-8">
+      <img src="assets/logo/logo-no-background.png" alt="logo" class="h-16 w-16">
+      <h1 class="text-3xl ml-4">Game of Three</h1>
+    </div>
+    <div class="flex flex-col p-8">
+      <form action="/start" method="post">
+        <input class="w-48 dark:text-black p-2" type="text" name="player" placeholder="Enter your name" required>
+        <button class="bg-green-500 rounded boarder-2 p-2 w-32" type="submit">Play</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
