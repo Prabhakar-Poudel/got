@@ -13,6 +13,7 @@ The same rules are applied until one player reaches the number 1 (after the divi
 See the example below.
 
 [Example](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/example.png)
+[[https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/example.png|alt=example]]
 
 For each "move", a sufficient output should be generated (mandatory: the added, and
 the resulting number).
@@ -50,11 +51,17 @@ To not add complexity that we probably do not need (which keeps architecture sim
 
 
 [Basic architecture](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/architecture.png)
+[[https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/architecture.png|alt=architecture]]
+
 
 
 [Architectural flow diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/flow-diagram.png)
+[[https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/flow-diagram.png|alt=user-flow]]
+
+
 
 [Socket diagram](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/socket-diagram.png)
+[[https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/socket-diagram.png|alt=socket-flow]]
 
 # Devlopement
 
