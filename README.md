@@ -1,4 +1,4 @@
-# Game of Three - Coding Challenge
+# Game of Three
 
 ![Won](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/won.png)
 ![Lost](https://github.com/Prabhakar-Poudel/got/blob/main/public/assets/images/lost.png)
