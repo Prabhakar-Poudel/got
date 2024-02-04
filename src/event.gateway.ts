@@ -12,19 +12,19 @@ interface Move {
   result: number;
 }
 
-interface JoinEvent {
+export interface JoinEvent {
   gameId: string;
   sessionId: string;
 }
 
-interface MoveEvent {
+export interface MoveEvent {
   gameId: string;
   seed: number;
   sessions: string[];
   moves: Move[];
 }
 
-enum EventType {
+export enum EventType {
   MOVE = 'move',
   BEGIN = 'begin',
   JOIN = 'join',

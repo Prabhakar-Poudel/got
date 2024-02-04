@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { StartGameDto, StartGameResponseDto } from './dto/startGame.dto';
 import { CACHE_MANAGER, Cache } from '@nestjs/cache-manager';
 
-const MAX_SEED = 100000;
+export const MAX_SEED = 100000;
 
 @Injectable()
 export class AppService {

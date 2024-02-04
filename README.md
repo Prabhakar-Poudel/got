@@ -109,4 +109,6 @@ Enter your name and hit the play button, one after another in both tabs
 The game should proceed automatically until it finishes
 
 # Automatic testing
-TODO
+
+Unit tests `npm run test`
+End to end test `npm run test:e2e`
