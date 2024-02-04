@@ -111,4 +111,5 @@ The game should proceed automatically until it finishes
 # Automatic testing
 
 Unit tests `npm run test`
+
 End to end test `npm run test:e2e`
